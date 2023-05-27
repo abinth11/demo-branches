@@ -1,0 +1,11 @@
+{
+  "name": "branches-demo",
+  "version": "1.0.0",
+  "description": "this is a simple project to understand the workflow of git branches",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "abin t h",
+  "license": "ISC"
+}
