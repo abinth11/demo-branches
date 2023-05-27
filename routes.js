@@ -40,7 +40,34 @@ router.post("/register-user", async (req, res) => {
   }
 });
 
-
-
+router.post("/login-user", async (req, res) => {
+    try {
+      const response = await userHelpers.loginUser(req.body);
+      response.status
+        ? res.status(200).json({
+            statusCode: 200,
+            successMessage: "Successfully logged in",
+            errorMessage: null,
+            data: response,
+            error: null,
+          })
+        : res.status(400).json({
+            statusCode: 400,
+            successMessage: null,
+            errorMessage: "Password incorrect",
+            data: response,
+            error: null,
+          });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        statusCode: 500,
+        successMessage: null,
+        errorMessage: "Internal server error",
+        data: null,
+        error: error,
+      });
+    }
+  });
 
 module.exports = router;
